@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Daily tracker · Tomas Web Studio</title><link rel="stylesheet" href="style.css"></head><body><nav><div class="w"><a class="logo" href="index.html" style="text-decoration:none">Tomas <span>Web Studio</span></a>
+<ul><li><a href="index.html#journey">Journey</a></li><li><a href="ambition.html">My ambition</a></li><li><a href="learning.html">Learning</a></li><li><a href="plan.html">The plan</a></li><li><a href="tracker.html">Daily tracker</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#contact">Contact</a></li></ul></div></nav>
+<header style="padding:80px 0 40px"><div class="w"><div class="tag">Daily tracker</div><h1>21 days, <span class="g">one at a time</span>.</h1>
+<p class="lead">Every day I log what I built, what I learned and what I'm proud of. Tap a day to see it.</p></div></header>
+<section style="padding-top:0"><div class="w"><div class="card"><div class="stats"><div><b><span id="cnt">0</span>/21</b>days done</div><div><b>🔥 <span id="str">0</span></b>day streak</div></div>
+<div class="bar2"><i id="bar" style="width:0%"></i></div></div>
+<div class="card" style="margin-top:20px"><h3>Calendar · Sat 17 Oct to Fri 6 Nov 2026</h3><div class="cal" id="cal" style="margin-top:14px"></div><div class="det" id="det"></div></div></div></section>
+<footer><div class="w">© 2026 Tomas Web Studio · Northern Beaches, Sydney</div></footer>
+<script>const o=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");o.unobserve(x.target)}}),{threshold:.12});document.querySelectorAll(".r").forEach(el=>o.observe(el));</script><script>
+const L={done:"✓ done",progress:"in progress",upcoming:"upcoming"};
+fetch("progress.json?"+Date.now()).then(r=>r.json()).then(d=>{const D=d.days,n=D.filter(x=>x.status=="done").length;
+let st=0;for(let i=D.length-1;i>=0;i--){if(D[i].status=="done")st++;else if(st||D[i].status=="upcoming"&&!st)continue;else break;}
+st=0;let last=D.map(x=>x.status).lastIndexOf("done");for(let i=last;i>=0&&D[i].status=="done";i--)st++;
+document.getElementById("bar").style.width=(n/D.length*100)+"%";document.getElementById("cnt").textContent=n;document.getElementById("str").textContent=st;
+const c=document.getElementById("cal");D.forEach((x,i)=>{const e=document.createElement("div");e.className="day "+x.status;
+const dt=new Date(x.date+"T00:00");e.innerHTML="<b>Day "+x.day+"</b>"+dt.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"})+"<br>";e.onclick=()=>show(x);c.appendChild(e)});
+show(D.find(x=>x.status=="progress")||D.filter(x=>x.status=="done").pop()||D[0]);
+function show(x){const f=(k,v)=>v?"<p><b>"+k+":</b> "+v+"</p>":"";document.getElementById("det").innerHTML="<h3>Day "+x.day+" · "+x.date+" <span class='st "+x.status+"'>"+L[x.status]+"</span></h3>"+f("Plan",x.plan)+f("What I built",x.built)+f("What I learned",x.learned)+f("Proud of",x.proud)+(x.commit?"<p><a href='"+x.commit+"'>See the commit →</a></p>":"")+f("Dad's note",x.dad_note)}});
+</script></body></html>

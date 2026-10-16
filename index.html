@@ -10,27 +10,164 @@
 <meta property="og:image" content="https://finlaysonnick74-source.github.io/tomas-web-studio/og.png">
 <meta property="og:locale" content="en_AU">
 <style>
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:760px;margin:0 auto;padding:40px 22px;color:#222;line-height:1.6;background:#fafafa}
-h1{font-size:2.4rem;margin:0 0 6px}h2{margin-top:40px;border-bottom:2px solid #eee;padding-bottom:6px}
-.offer{font-size:1.25rem;color:#555}.svc{background:#fff;border:1px solid #e5e5e5;border-radius:10px;padding:16px 20px;margin:12px 0}
-.svc b{display:block;font-size:1.1rem}.price{color:#c2410c;font-weight:700}.v{margin-top:50px;font-size:.85rem;color:#666;border-top:1px solid #eee;padding-top:14px}
-.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;margin-top:16px;border-radius:999px;background:#1A6A97;color:#fff;font-weight:700;text-decoration:none}
+/* ===== Basics: font, colours, page width ===== */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px} /* stops the sticky menu covering headings */
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:#222;line-height:1.6;background:#fafafa;overflow-x:hidden}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px}
+h1{font-size:2.4rem;margin:0 0 6px;line-height:1.2}h2{margin-top:40px;border-bottom:2px solid #eee;padding-bottom:6px}
+svg{display:block;width:100%;height:auto}
+
+/* ===== Top menu bar (sticks to the top) ===== */
+nav{position:sticky;top:0;z-index:10;background:#1A6A97;color:#fff}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;min-height:56px}
+nav .logo{color:#fff;font-weight:800;text-decoration:none}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px}
+nav ul a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:8px;display:block}
+nav ul a:hover,nav ul a:focus{background:#145478}
+#menuBtn{display:none;background:none;border:2px solid #fff;color:#fff;font-size:1.3rem;border-radius:8px;width:44px;height:44px;cursor:pointer}
+
+/* On small screens: hide links, show the ☰ button */
+@media (max-width:600px){
+  #menuBtn{display:block}
+  nav ul{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;background:#1A6A97;padding:8px 22px 14px}
+  nav ul.open{display:flex} /* JS adds "open" when you tap ☰ */
+  h1{font-size:1.9rem}
+}
+
+/* ===== Hero (sunrise + waves art) ===== */
+.hero{background:linear-gradient(#FFD6A0,#FFB27A 45%,#8FD0E8);text-align:center}
+.hero .wrap{padding-top:34px}
+.local{display:inline-block;background:#fff;color:#1A6A97;font-weight:700;border-radius:999px;padding:4px 14px;font-size:.9rem}
+.soon{background:#fff8f0;border:1px solid #F28C28;border-radius:10px;padding:10px 16px;margin:16px 0}
+
+/* ===== Cards, prices, buttons (kept from v0.1) ===== */
+.offer{font-size:1.25rem;color:#444}.svc{background:#fff;border:1px solid #e5e5e5;border-radius:10px;padding:16px 20px;margin:12px 0}
+.svc b{display:block;font-size:1.1rem}.price{color:#c2410c;font-weight:700}.v{margin-top:50px;font-size:.85rem;color:#666;border-top:1px solid #eee;padding:14px 0 30px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;margin-top:16px;border-radius:999px;background:#1A6A97;color:#fff;font-weight:700;text-decoration:none;border:0;font-size:1rem;cursor:pointer}
 .btn:hover,.btn:focus{background:#145478}.btn:focus{outline:3px solid #F28C28;outline-offset:2px}
 .give{background:#eef7f2;border:1px solid #2E9E6B55;border-radius:10px;padding:14px 18px;margin:20px 0;color:#1d5e41}
+
+/* ===== Picklist box ===== */
+.pick{background:#fff;border:2px solid #1A6A97;border-radius:12px;padding:18px 20px}
+.pick select{width:100%;font-size:1rem;padding:10px;border-radius:8px;border:1px solid #aaa;margin-top:6px}
+#tip{margin:14px 0 0}
 </style></head><body>
-<h1>Tomas Web Studio</h1>
-<p class="offer">Modern websites and Instagram for local businesses on Sydney's Northern Beaches.</p>
-<a class="btn" href="#follow">Get a free website check →</a>
-<p class="give"><b>💚 Free sites for local charities.</b></p>
-<h2>Services and prices</h2>
-<div class="svc"><b>Website build</b><span class="price">A$1,500–3,000 one-off</span> (example: A$1,800). Design and build, mobile-friendly, Google Maps, contact or order form, 2 rounds of changes. About 2 weeks.</div>
-<div class="svc"><b>Website care</b><span class="price">A$99 a month</span>. Hosting, updates, menu and price changes, small fixes, a monthly check.</div>
-<div class="svc"><b>Instagram care</b><span class="price">A$300–500 a month</span>. 12 posts plus stories, captions, hashtags, scheduling and a monthly report.</div>
-<div class="svc" style="border-color:#F28C28;background:#fff8f0"><b>⭐ Starter offer for my first 3 clients</b>I&rsquo;m new, local and building my portfolio, so my first 3 clients get a <span class="price">1&ndash;3 page website for A$600</span> (normally from A$1,500), plus website care at A$49 a month for the first 3 months. In return, I ask for a short review and permission to show your site in my work.</div>
-<p style="font-size:.9rem;color:#666">All prices in AUD. No GST.</p>
-<h2 id="follow">Contact</h2>
-<p>Want a free website check, or a quote? Send me an email and I&rsquo;ll reply within 2 days.</p>
-<a class="btn" href="mailto:nick@innovotech.com?subject=Tomas%20Web%20Studio%20-%20free%20website%20check&amp;body=Hi%20Tomas%2C%0A%0AMy%20business%3A%20%0AMy%20website%20(if%20I%20have%20one)%3A%20%0AHow%20you%20can%20help%3A%20%0A">✉️ Email me for a free check</a>
-<p style="font-size:.9rem;color:#666;margin-top:10px">Or write to <a href="mailto:nick@innovotech.com">nick@innovotech.com</a>. My dad helps run my inbox while I&rsquo;m under 18. Instagram is coming on Launch Day.</p>
-<p class="v">Version 0.1 · watch this site grow.</p>
+
+<!-- ===== MENU BAR ===== -->
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#home">🌊 Tomas Web Studio</a>
+    <!-- This button only shows on phones -->
+    <button id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <ul id="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#prices">Prices</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#follow">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HERO: sunrise, Barrenjoey lighthouse, Norfolk pine, waves (my own SVG drawing) ===== -->
+<header class="hero" id="home">
+  <div class="wrap">
+    <span class="local">📍 Built on the Northern Beaches</span>
+    <h1>Tomas Web Studio</h1>
+    <p class="offer">Modern websites and Instagram for local businesses on Sydney's Northern Beaches.</p>
+    <a class="btn" href="#follow">Get a free website check →</a>
+  </div>
+  <svg viewBox="0 0 800 220" aria-hidden="true">
+    <!-- the sun rising -->
+    <circle cx="400" cy="150" r="60" fill="#FFE58A"/>
+    <!-- headland on the left with the lighthouse on top -->
+    <path d="M0 150 Q60 70 150 80 Q220 90 260 150 Z" fill="#3E6B4E"/>
+    <rect x="140" y="50" width="12" height="32" fill="#fff"/>
+    <rect x="138" y="44" width="16" height="8" fill="#C2410C"/>
+    <!-- Norfolk pine on the right: a trunk and layered branches -->
+    <rect x="667" y="40" width="6" height="120" fill="#24402F"/>
+    <path d="M670 30 L655 60 L685 60 Z M670 50 L645 85 L695 85 Z M670 75 L638 112 L702 112 Z M670 100 L632 140 L708 140 Z" fill="#2F5A3E"/>
+    <!-- the ocean and two waves -->
+    <path d="M0 150 H800 V220 H0 Z" fill="#1A6A97"/>
+    <path d="M0 165 Q50 145 100 165 T200 165 T300 165 T400 165 T500 165 T600 165 T700 165 T800 165 V220 H0 Z" fill="#2A88BD"/>
+    <path d="M0 190 Q50 172 100 190 T200 190 T300 190 T400 190 T500 190 T600 190 T700 190 T800 190 V220 H0 Z" fill="#8FD0E8"/>
+    <!-- sand at the bottom -->
+    <path d="M0 205 Q400 195 800 205 V220 H0 Z" fill="#F5DEB3"/>
+  </svg>
+</header>
+
+<main class="wrap">
+  <p class="soon">🗓️ <b>Opening Fri 6 Nov – follow along.</b></p>
+  <p class="give"><b>💚 Free sites for local charities.</b></p>
+
+  <!-- ===== PICKLIST: choose an option, see a tip and price ===== -->
+  <h2 id="services">What do you need?</h2>
+  <div class="pick">
+    <label for="need"><b>Pick one:</b></label>
+    <select id="need">
+      <option value="new">New website</option>
+      <option value="refresh">Website refresh</option>
+      <option value="insta">Instagram setup</option>
+      <option value="care">Website care</option>
+      <option value="unsure">Not sure yet</option>
+    </select>
+    <p id="tip"></p>
+    <a class="btn" id="ask" href="#">✉️ Ask about this</a>
+  </div>
+
+  <!-- wave divider between sections -->
+  <svg viewBox="0 0 800 40" aria-hidden="true" style="margin-top:30px"><path d="M0 20 Q50 0 100 20 T200 20 T300 20 T400 20 T500 20 T600 20 T700 20 T800 20" fill="none" stroke="#2A88BD" stroke-width="4"/></svg>
+
+  <h2 id="prices">Services and prices</h2>
+  <div class="svc"><b>Website build</b><span class="price">A$1,500–3,000 one-off</span> (example: A$1,800). Design and build, mobile-friendly, Google Maps, contact or order form, 2 rounds of changes. About 2 weeks.</div>
+  <div class="svc"><b>Website care</b><span class="price">A$99 a month</span>. Hosting, updates, menu and price changes, small fixes, a monthly check.</div>
+  <div class="svc"><b>Instagram care</b><span class="price">A$300–500 a month</span>. 12 posts plus stories, captions, hashtags, scheduling and a monthly report.</div>
+  <div class="svc" style="border-color:#F28C28;background:#fff8f0"><b>⭐ Starter offer for my first 3 clients</b>I&rsquo;m new, local and building my portfolio, so my first 3 clients get a <span class="price">1&ndash;3 page website for A$600</span> (normally from A$1,500), plus website care at A$49 a month for the first 3 months. In return, I ask for a short review and permission to show your site in my work.</div>
+  <p style="font-size:.9rem;color:#666">All prices in AUD. No GST.</p>
+
+  <svg viewBox="0 0 800 40" aria-hidden="true"><path d="M0 20 Q50 0 100 20 T200 20 T300 20 T400 20 T500 20 T600 20 T700 20 T800 20" fill="none" stroke="#F28C28" stroke-width="4"/></svg>
+
+  <h2 id="about">About</h2>
+  <p>I&rsquo;m Tomas, a local on Sydney&rsquo;s Northern Beaches. I build simple, modern websites and look after Instagram for local businesses, from the cafes to the surf shops.</p>
+
+  <h2 id="follow">Contact</h2>
+  <p>Want a free website check, or a quote? Send me an email and I&rsquo;ll reply within 2 days.</p>
+  <a class="btn" href="mailto:nick@innovotech.com?subject=Tomas%20Web%20Studio%20-%20free%20website%20check&amp;body=Hi%20Tomas%2C%0A%0AMy%20business%3A%20%0AMy%20website%20(if%20I%20have%20one)%3A%20%0AHow%20you%20can%20help%3A%20%0A">✉️ Email me for a free check</a>
+  <p style="font-size:.9rem;color:#666;margin-top:10px">Or write to <a href="mailto:nick@innovotech.com">nick@innovotech.com</a>. My dad helps run my inbox while I&rsquo;m under 18. Instagram is coming on Launch Day.</p>
+  <p class="v">Version 1 (Day 1) · watch this site grow. <a href="v0-1.html">See version 0.1</a>.</p>
+</main>
+
+<script>
+// ===== Phone menu: tap ☰ to show or hide the links =====
+var btn = document.getElementById('menuBtn');
+var menu = document.getElementById('menu');
+btn.onclick = function () {
+  menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', menu.classList.contains('open'));
+};
+// Close the menu after tapping a link
+menu.querySelectorAll('a').forEach(function (a) {
+  a.onclick = function () { menu.classList.remove('open'); };
+});
+
+// ===== Picklist: a tip and price for each choice =====
+var tips = {
+  new:     ['New website', 'A simple 1–3 page site. Starter offer for my first 3 clients: A$600 (normally from A$1,500).'],
+  refresh: ['Website refresh', 'I make your current site modern and mobile-friendly. Starter offer: A$600 for my first 3 clients.'],
+  insta:   ['Instagram setup', 'I set up and post for you. Instagram care is A$200 for the first month.'],
+  care:    ['Website care', 'Updates, fixes and a monthly check. A$49 a month for the first 3 months.'],
+  unsure:  ['Not sure yet', 'No problem! Ask for a free website check and I&rsquo;ll suggest what fits.']
+};
+var need = document.getElementById('need');
+function showTip() {
+  var t = tips[need.value];
+  document.getElementById('tip').innerHTML = t[1];
+  // Put the choice in the email subject
+  document.getElementById('ask').href = 'mailto:nick@innovotech.com?subject=' +
+    encodeURIComponent('Tomas Web Studio - ' + t[0]);
+}
+need.onchange = showTip;
+showTip(); // show the first tip straight away
+</script>
 </body></html>

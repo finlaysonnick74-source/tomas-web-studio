@@ -39,13 +39,38 @@ form{display:grid;gap:12px;max-width:560px}input,textarea,select{padding:14px;bo
 footer{padding:40px 0;color:var(--mut);font-size:.9rem;border-top:1px solid #ffffff12}
 .r{opacity:0;transform:translateY(24px);transition:.7s}.r.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.r{opacity:1;transform:none}}
+
+.bar2{height:14px;border-radius:99px;background:#ffffff14;overflow:hidden;margin:10px 0 6px}.bar2 i{display:block;height:100%;background:linear-gradient(90deg,var(--a),var(--b),var(--c))}
+.wk{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:24px}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px;margin-top:12px}
+.day{border-radius:12px;padding:8px;font-size:.78rem;border:1px solid #ffffff18;color:var(--mut)}.day b{display:block;color:#fff}
+.day.upcoming:after{content:"upcoming";font-size:.7rem}.day.progress{border-color:var(--b)}.day.progress:after{content:"in progress";color:var(--b);font-size:.7rem}
+.day.done{background:#5ee7c922;border-color:var(--c)}.day.done:after{content:"✓ done";color:var(--c);font-size:.7rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.chip{padding:8px 16px;border-radius:999px;background:#ffffff10;border:1px solid #ffffff20;font-weight:700}
+.log{border-left:3px solid var(--a);padding:6px 0 6px 16px;margin-top:10px}.log b{color:var(--b)}
 </style></head><body>
 <nav><div class="w"><a class="logo" href="#" style="text-decoration:none">Tomas <span>Web Studio</span></a>
-<ul><li><a href="#showcase">Showcase</a></li><li><a href="#living">Living sites</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#how">How it works</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+<ul><li><a href="#journey">Journey</a></li><li><a href="#showcase">Showcase</a></li><li><a href="#living">Living sites</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#how">How it works</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
 <header><div class="w"><div class="tag">📍 Northern Beaches, Sydney · Websites + Instagram</div>
 <h1>Your shop window, <span class="g">alive</span> online.</h1>
 <p class="lead">Modern websites and fresh Instagram for local cafés, bakeries, salons, gyms and tradies. Built fast, kept fresh every month, by a 15-year-old local who gets the internet.</p>
 <div class="cta"><a class="btn" href="#contact">Get a free website + Instagram check</a><a class="btn o" href="#showcase">See the concept</a></div></div></header>
+
+<section id="journey"><div class="w r"><div class="label">The 21-day transformation journey</div><h2>Watch this site <span class="g">transform</span>.</h2>
+<p class="sub" style="font-size:1.1rem">I'm Tomas. Up to now I've been pretty unstructured. Over the next 3 weeks I'm learning to build websites properly, side by side with my dad, and you can watch this site transform as I go.</p>
+<div class="card"><div class="label">Progress · Sat 17 Oct to Fri 6 Nov 2026</div>
+<!-- UPDATE: change both numbers below (Day X of 21) and width % = X/21*100 -->
+<div class="bar2"><i style="width:0%"></i></div><b>Day 0 of 21</b>
+<p class="note">Before and after: today, this site is the <b>before</b>. By Day 21 it becomes the <b>after</b>.</p></div>
+<!-- UPDATE day cards: change class "day upcoming" to "day progress" or "day done" -->
+<div class="wk">
+<div class="card"><h3>Week 1 · Foundations + design</h3><p>Brief, Mobbin research, Canva designs, GitHub, first deploy.</p><div class="days"><div class="day upcoming"><b>Day 1</b>Sat 17 Oct<br></div><div class="day upcoming"><b>Day 2</b>Sun 18 Oct<br></div><div class="day upcoming"><b>Day 3</b>Mon 19 Oct<br></div><div class="day upcoming"><b>Day 4</b>Tue 20 Oct<br></div><div class="day upcoming"><b>Day 5</b>Wed 21 Oct<br></div><div class="day upcoming"><b>Day 6</b>Thu 22 Oct<br></div><div class="day upcoming"><b>Day 7</b>Fri 23 Oct<br></div></div></div>
+<div class="card"><h3>Week 2 · Build</h3><p>Pages, pricing, the living-website features, Instagram link-up.</p><div class="days"><div class="day upcoming"><b>Day 8</b>Sat 24 Oct<br></div><div class="day upcoming"><b>Day 9</b>Sun 25 Oct<br></div><div class="day upcoming"><b>Day 10</b>Mon 26 Oct<br></div><div class="day upcoming"><b>Day 11</b>Tue 27 Oct<br></div><div class="day upcoming"><b>Day 12</b>Wed 28 Oct<br></div><div class="day upcoming"><b>Day 13</b>Thu 29 Oct<br></div><div class="day upcoming"><b>Day 14</b>Fri 30 Oct<br></div></div></div>
+<div class="card"><h3>Week 3 · Polish + launch</h3><p>Testing, domain, Postiz, going live and first pitches.</p><div class="days"><div class="day upcoming"><b>Day 15</b>Sat 31 Oct<br></div><div class="day upcoming"><b>Day 16</b>Sun 1 Nov<br></div><div class="day upcoming"><b>Day 17</b>Mon 2 Nov<br></div><div class="day upcoming"><b>Day 18</b>Tue 3 Nov<br></div><div class="day upcoming"><b>Day 19</b>Wed 4 Nov<br></div><div class="day upcoming"><b>Day 20</b>Thu 5 Nov<br></div><div class="day upcoming"><b>Day 21</b>Fri 6 Nov<br></div></div></div>
+</div>
+<div class="grid" style="margin-top:20px"><div class="card"><h3>Skills I'm earning</h3><div class="chips"><span class="chip">💪 Commitment</span><span class="chip">🗺 Planning</span><span class="chip">⏰ Deadlines</span><span class="chip">🎨 Design</span><span class="chip">💻 Code</span><span class="chip">💰 Money</span><span class="chip">🤝 Pitching</span></div></div>
+<div class="card" id="log"><h3>Build log</h3><!-- ADD new entries at the top: <div class="log"><b>Day 1:</b> ...</div> -->
+<div class="log"><b>Day 0:</b> Dad and I set up this site. Watch it change.</div></div></div></div></section>
 
 <section id="showcase"><div class="w r"><div class="label">Before and after · concept design</div><h2>From tired to <span class="g">living</span>.</h2>
 <p class="sub">A concept redesign for a Freshwater bakery, made to show what's possible. Not a client project; example data only.</p>
